@@ -5,117 +5,60 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
+GEMINI_API_KEY = "AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg"
+
 @app.route("/")
 
 def home():
-    return "Nisha Agro API Running ✅"
+    return "Nisha Agro AI Running ✅"
 
 @app.route("/crop/<crop_name>")
 
 def crop(crop_name):
 
-    crop_name = crop_name.lower()
+    prompt = f"""
+    Give detailed farming information about {crop_name} crop.
 
-    crops = {
+    Include:
+    - Best soil
+    - Best place
+    - Temperature
+    - Water requirement
+    - Fertilizers
+    - Diseases
+    - Harvesting
+    - Profit
+    - Farming tips
+    """
 
-        "wheat": """
-🌾 Wheat Farming
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
-Best Soil:
-Loamy soil with good drainage.
-
-Temperature:
-10°C to 25°C.
-
-Water Requirement:
-Needs moderate irrigation.
-
-Fertilizers:
-Nitrogen and phosphorus fertilizers are best.
-
-Season:
-Winter season crop.
-
-Diseases:
-Rust and smut diseases are common.
-
-Harvesting:
-Ready in 4-5 months.
-
-Profit:
-High market demand gives good profit.
-""",
-
-        "rice": """
-🌾 Rice Farming
-
-Best Soil:
-Clayey and fertile soil.
-
-Temperature:
-20°C to 35°C.
-
-Water Requirement:
-Needs high water supply.
-
-Fertilizers:
-Nitrogen-rich fertilizers.
-
-Season:
-Kharif season.
-
-Diseases:
-Blast disease and bacterial leaf blight.
-
-Harvesting:
-Ready in 3-6 months.
-
-Profit:
-Very profitable in high-demand areas.
-""",
-
-        "cotton": """
-🌾 Cotton Farming
-
-Best Soil:
-Black soil is best.
-
-Temperature:
-21°C to 30°C.
-
-Water Requirement:
-Moderate watering required.
-
-Fertilizers:
-Potassium and nitrogen fertilizers.
-
-Season:
-Summer crop.
-
-Diseases:
-Wilt and leaf curl disease.
-
-Harvesting:
-Ready in 5-6 months.
-
-Profit:
-Good export and textile demand.
-"""
-
+    data = {
+        "contents": [
+            {
+                "parts": [
+                    {
+                        "text": prompt
+                    }
+                ]
+            }
+        ]
     }
 
-    result = crops.get(
+    response = requests.post(url, json=data)
 
-        crop_name,
+    result = response.json()
 
-        "❌ Crop data not available right now."
+    try:
 
-    )
+        answer = result["candidates"][0]["content"]["parts"][0]["text"]
+
+    except:
+
+        answer = str(result)
 
     return jsonify({
-
-        "answer": result
-
+        "answer": answer
     })
 
 if __name__ == "__main__":
