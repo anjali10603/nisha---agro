@@ -1,0 +1,49 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:sans-serif;
+}
+
+body{
+background:#f4fff4;
+}
+
+nav{
+background:#111;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:24px;
+font-weight:bold;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+}
+
+section{
+padding:100px 8%;
+text-align:center;
+}
+
+.btn{
+padding:15px 30px;
+background:#2ecc71;
+border:none;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}

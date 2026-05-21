@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nisha AgroGuide</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+.hero{
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:700px;
+color:white;
+}
+
+.hero-content h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.7;
+margin-bottom:30px;
+}
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:100px 8%;
+background:#eefdee;
+}
+
+.card{
+width:260px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.4s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+margin-top:20px;
+text-align:center;
+}
+
+.card p{
+padding:20px;
+color:#666;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:38px;
+}
+
+.hero-content p{
+font-size:16px;
+}
+
+.card{
+width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">🌾 Nisha AgroGuide</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="search.html">Search</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Smart AI Farming Solution</h1>
+
+<p>
+Improve your farming with smart crop analysis,
+soil recommendations and modern agriculture technology.
+</p>
+
+<a href="search.html">
+<button class="btn">
+Explore Crops
+</button>
+</a>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<a href="crop.html" style="text-decoration:none;color:black;">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+
+<h3>🌾 Crop Analysis</h3>
+
+<p>
+Detailed crop growing process and recommendations.
+</p>
+
+</div>
+
+</a>
+
+
+
+<a href="soil.html" style="text-decoration:none;color:black;">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
+
+<h3>🌱 Soil Guide</h3>
+
+<p>
+Best soil suggestions for healthy crops.
+</p>
+
+</div>
+
+</a>
+
+
+
+<a href="water.html" style="text-decoration:none;color:black;">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+<h3>💧 Water Management</h3>
+
+<p>
+Smart irrigation and water control system.
+</p>
+
+</div>
+
+</a>
+
+
+
+<a href="report.html" style="text-decoration:none;color:black;">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+
+<h3>📊 Smart Reports</h3>
+
+<p>
+View crop yield and farming profit analysis.
+</p>
+
+</div>
+
+</a>
+
+</section>
+
+<footer>
+
+<p style="text-align:center;padding:20px;background:#111;color:white;">
+© 2026 Nisha AgroGuide
+</p>
+
+</footer>
+
+</body>
+</html>
