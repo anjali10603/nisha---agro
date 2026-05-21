@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 
 @app.route("/crop/<crop_name>")
 
