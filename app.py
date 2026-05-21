@@ -5,6 +5,8 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
+OPENROUTER_API_KEY = "AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg"
+
 @app.route("/")
 
 def home():
@@ -15,27 +17,45 @@ def home():
 def crop(crop_name):
 
     prompt = f"""
-    Give detailed farming information about {crop_name} crop.
+    Give complete farming information about {crop_name} crop.
 
     Include:
     - Best soil
-    - Temperature
+    - Climate
     - Water requirement
     - Fertilizers
     - Diseases
     - Harvesting
     - Profit
-    - Farming tips
+    - Smart farming tips
     """
-
-    API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
 
     response = requests.post(
 
-        API_URL,
+        url="https://openrouter.ai/api/v1/chat/completions",
+
+        headers={
+
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://nisha-agro-api-2.onrender.com",
+            "X-Title": "Nisha AgroGuide"
+
+        },
 
         json={
-            "inputs": prompt
+
+            "model": "mistralai/mistral-7b-instruct:free",
+
+            "messages": [
+
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+
+            ]
+
         }
 
     )
@@ -44,14 +64,16 @@ def crop(crop_name):
 
     try:
 
-        answer = result[0]["generated_text"]
+        answer = result["choices"][0]["message"]["content"]
 
     except:
 
         answer = str(result)
 
     return jsonify({
+
         "answer": answer
+
     })
 
 if __name__ == "__main__":
