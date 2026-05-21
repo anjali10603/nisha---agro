@@ -7,6 +7,11 @@ CORS(app)
 
 OPENROUTER_API_KEY = "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"
 
+@app.route("/")
+
+def home():
+    return "Nisha Agro API Running ✅"
+
 @app.route("/crop/<crop_name>")
 
 def crop(crop_name):
@@ -30,27 +35,20 @@ def crop(crop_name):
         "https://openrouter.ai/api/v1/chat/completions",
 
         headers={
-
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json",
             "HTTP-Referer": "https://nisha-agro-api.onrender.com",
-            "X-Title": "Nisha AgroGuide",
-
+            "X-Title": "Nisha AgroGuide"
         },
 
         json={
-
-            "model": "deepseek/deepseek-chat-v3-0324:free",
-
+            "model": "deepseek/deepseek-chat",
             "messages": [
-
                 {
                     "role": "user",
                     "content": prompt
                 }
-
             ]
-
         }
 
     )
@@ -58,22 +56,14 @@ def crop(crop_name):
     data = response.json()
 
     try:
-
         answer = data["choices"][0]["message"]["content"]
 
     except:
-
         answer = str(data)
 
     return jsonify({
         "answer": answer
     })
-
-@app.route("/")
-
-def home():
-
-    return "Nisha Agro API Running ✅"
 
 if __name__ == "__main__":
     app.run(debug=True)
