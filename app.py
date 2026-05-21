@@ -1,11 +1,15 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-import requests
+import google.generativeai as genai
 
 app = Flask(__name__)
 CORS(app)
 
-OPENROUTER_API_KEY = "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"
+# Gemini API Key
+genai.configure(api_key="AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg")
+
+# Model
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 @app.route("/")
 
@@ -17,53 +21,32 @@ def home():
 def crop(crop_name):
 
     prompt = f"""
-    Give detailed farming information about {crop_name} crop.
+    Give complete farming information about {crop_name} crop.
 
     Include:
     - Best soil
-    - Temperature
+    - Climate
     - Water requirement
     - Fertilizers
-    - Season
     - Diseases
     - Harvesting
     - Profit
+    - Farming tips
     """
 
-    response = requests.post(
-
-        "https://openrouter.ai/api/v1/chat/completions",
-
-        headers={
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://nisha-agro-api.onrender.com",
-            "X-Title": "Nisha AgroGuide"
-        },
-
-        json={
-            "model": "deepseek/deepseek-chat",
-            "messages": [
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
-        }
-
-    )
-
-    data = response.json()
-
     try:
-        answer = data["choices"][0]["message"]["content"]
 
-    except:
-        answer = str(data)
+        response = model.generate_content(prompt)
 
-    return jsonify({
-        "answer": answer
-    })
+        return jsonify({
+            "answer": response.text
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "answer": str(e)
+        })
 
 if __name__ == "__main__":
     app.run(debug=True)
