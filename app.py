@@ -5,8 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-OPENROUTER_API_KEY = "AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg"
-print(OPENROUTER_API_KEY)
+OPENROUTER_API_KEY = "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"
 
 @app.route("/")
 
@@ -33,7 +32,7 @@ def crop(crop_name):
 
     response = requests.post(
 
-        url="https://openrouter.ai/api/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions",
 
         headers={
 
@@ -62,8 +61,6 @@ def crop(crop_name):
     )
 
     result = response.json()
-    print("STATUS:", response.status_code)
-    print("RESPONSE:", response.text)
 
     try:
 
