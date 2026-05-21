@@ -6,6 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 OPENROUTER_API_KEY = "AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg"
+print(OPENROUTER_API_KEY)
 
 @app.route("/")
 
