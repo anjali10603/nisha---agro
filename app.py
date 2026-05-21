@@ -5,8 +5,6 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-GEMINI_API_KEY = "AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg"
-
 @app.route("/")
 
 def home():
@@ -21,7 +19,6 @@ def crop(crop_name):
 
     Include:
     - Best soil
-    - Best place
     - Temperature
     - Water requirement
     - Fertilizers
@@ -31,27 +28,23 @@ def crop(crop_name):
     - Farming tips
     """
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
+    API_URL = "https://api-inference.huggingface.co/models/google/flan-t5-large"
 
-    data = {
-        "contents": [
-            {
-                "parts": [
-                    {
-                        "text": prompt
-                    }
-                ]
-            }
-        ]
-    }
+    response = requests.post(
 
-    response = requests.post(url, json=data)
+        API_URL,
+
+        json={
+            "inputs": prompt
+        }
+
+    )
 
     result = response.json()
 
     try:
 
-        answer = result["candidates"][0]["content"]["parts"][0]["text"]
+        answer = result[0]["generated_text"]
 
     except:
 
