@@ -1,7 +1,9 @@
-.search-hero{
-    height:100vh;
+body{
     background:url('images/searchbg.jpg');
     background-size:cover;
     background-position:center;
-    
+}
+
+.search-hero{
+    padding-top:100px;
 }
