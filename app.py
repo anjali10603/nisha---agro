@@ -9,7 +9,7 @@ CORS(app)
 genai.configure(api_key="AIzaSyCG4cGEhjmwp9KG4xMBSmcqg1TfFRLhmkg")
 
 # Model
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-pro")
 
 @app.route("/")
 
