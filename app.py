@@ -33,12 +33,14 @@ def crop(crop_name):
 
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json"
+            "HTTP-Referer": "https://nisha-agro-api.onrender.com",
+            "X-Title": "Nisha AgroGuide",
 
         },
 
         json={
 
-            "model": "openai/gpt-3.5-turbo",
+            "model": "deepseek/deepseek-chat-v3-0324:free",
 
             "messages": [
 
