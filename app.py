@@ -61,6 +61,8 @@ def crop(crop_name):
     )
 
     result = response.json()
+    print("STATUS:", response.status_code)
+    print("RESPONSE:", response.text)
 
     try:
 
