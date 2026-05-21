@@ -32,7 +32,7 @@ def crop(crop_name):
         headers={
 
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
             "HTTP-Referer": "https://nisha-agro-api.onrender.com",
             "X-Title": "Nisha AgroGuide",
 
