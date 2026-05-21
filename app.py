@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 
 @app.route("/")
 
