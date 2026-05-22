@@ -79,16 +79,14 @@ Search
 
 async function getCropData() {
 
-const crop =
-document.getElementById("cropInput")
+const crop = document
+.getElementById("cropInput")
 .value
 .trim();
 
-if(!crop){
-
+if (!crop) {
 alert("Please enter crop name");
 return;
-
 }
 
 document.getElementById("result").innerHTML =
@@ -132,6 +130,8 @@ console.log(error);
 }
 
 }
+
+</script>
 
 
 
