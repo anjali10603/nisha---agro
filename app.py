@@ -36,7 +36,7 @@ def crop(crop_name):
     }
 
     data = {
-        "model": "openchat/openchat-7b:free",
+        "model": "mistralai/mistral-7b-instruct:free",
         "messages": [
             {
                 "role": "user",
