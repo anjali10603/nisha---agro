@@ -13,6 +13,10 @@ def home():
 
 @app.route("/crop/<crop_name>")
 def crop(crop_name):
+    
+@app.route('/<path:path>')
+def static_files(path):
+    return send_from_directory('.', path)
 
     prompt = f"""
     Give detailed farming information about {crop_name} crop.
