@@ -106,17 +106,7 @@ width:100%;
 
 </head>
 
-<body>
-<div class="hero">
-    <div class="overlay">
-        <h1>Nisha Agro AI</h1>
-        <p>Smart Farming Solutions For Modern Farmers</p>
-
-        <a href="search.html">
-            <button>Search Crops</button>
-        </a>
-    </div>
-</div>
+<body style="background:url('images/home.jpg'); background-size:cover; background-position:center; background-attachment:fixed;">
 
 <!-- NAVBAR -->
 
@@ -130,6 +120,19 @@ width:100%;
 <li><a href="features.html">Features</a></li>
 <li><a href="search.html">Search</a></li>
 <li><a href="contact.html">Contact</a></li>
+<li><a href="weather.html">Weather</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="signup.html">Signup</a></li>
+
+<li>
+<select id="language" onchange="changeLanguage()"
+style="padding:8px;border-radius:8px;">
+
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+
+</select>
+</li>
 </ul>
 
 </nav>
@@ -240,6 +243,22 @@ View crop yield and farming profit analysis.
 </p>
 
 </footer>
+<script>
 
+function changeLanguage(){
+
+let lang=document.getElementById("language").value;
+
+if(lang==="hi"){
+alert("Hindi Language Selected");
+}
+
+else{
+alert("English Language Selected");
+}
+
+}
+
+</script>
 </body>
 </html>
