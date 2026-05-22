@@ -9,7 +9,7 @@ GROQ_API_KEY = "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"
 
 @app.route("/")
 def home():
-    return send_from_directory('.', 'search.html')
+    return send_from_directory('.', 'index.html')
 
 @app.route("/crop/<crop_name>")
 def crop(crop_name):
