@@ -6,6 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 OPENROUTER_API_KEY = "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"
+print("KEY:", OPENROUTER_API_KEY)
 
 @app.route("/")
 
@@ -50,6 +51,7 @@ def crop(crop_name):
         headers=headers,
         json=data
     )
+    print(response.text)
 
     result = response.json()
 
