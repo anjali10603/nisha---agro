@@ -3,24 +3,29 @@ from flask_cors import CORS
 import requests
 import os
 
-# Yeh configuration Gunicorn aur Render par bina folder ke direct files read karne me madad karegi
+# static_folder='.' lagane se Flask ko pata chalta hai ki saari files root me hi padi hain
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
 GROQ_API_KEY = "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"
 
-# 1. Main Homepage (index.html) ko load karne ke liye
+# 1. MAIN HOMEPAGE ROUTE
 @app.route("/")
 def home():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory(os.path.abspath('.'), 'index.html')
 
-# 2. SABHI BUTTONS AUR CSS KA 404 ERROR THIK KARNE KE LIYE:
-# Jab koi user kisi button par click karega (jaise search.html), toh yeh use sahi se load karega
+# 2. SABHI BUTTONS AUR SATELLITE PAGES KA 404 ERROR THIK KARNE KE LIYE
+# Jab aap website par kisi bhi button (.html) par click karengi, toh ye route use sahi se open karega
+@app.route('/<string:page_name>.html')
+def serve_any_html(page_name):
+    return send_from_directory(os.path.abspath('.'), f"{page_name}.html")
+
+# 3. AAPKI SAARI CSS/JS FILES LOAD KARNE KE LIYE ROUTE
 @app.route('/<path:filename>')
 def serve_static(filename):
-    return send_from_directory('.', filename)
+    return send_from_directory(os.path.abspath('.'), filename)
 
-# 3. Aapka AI Crop Search Function (Jo bilkul sahi chal raha tha)
+# 4. AAPKA AI CROP SEARCH FUNCTION
 @app.route("/crop/<crop_name>")
 def crop(crop_name):
     prompt = f"""
