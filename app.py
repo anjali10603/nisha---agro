@@ -1,22 +1,26 @@
 from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 import requests
+import os
 
-# static_url_path='' lagane se Flask aapki uploaded CSS/JS ko direct read kar lega
+# Yeh configuration Gunicorn aur Render par bina folder ke direct files read karne me madad karegi
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
 GROQ_API_KEY = "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"
 
+# 1. Main Homepage (index.html) ko load karne ke liye
 @app.route("/")
 def home():
     return send_from_directory('.', 'index.html')
 
-# Yeh line aapki baaki saari uploaded files (search.html, style.css etc.) ka 404 error thik karegi
-@app.route('/<path:path>')
-def static_files(path):
-    return send_from_directory('.', path)
+# 2. SABHI BUTTONS AUR CSS KA 404 ERROR THIK KARNE KE LIYE:
+# Jab koi user kisi button par click karega (jaise search.html), toh yeh use sahi se load karega
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('.', filename)
 
+# 3. Aapka AI Crop Search Function (Jo bilkul sahi chal raha tha)
 @app.route("/crop/<crop_name>")
 def crop(crop_name):
     prompt = f"""
@@ -42,4 +46,5 @@ def crop(crop_name):
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
