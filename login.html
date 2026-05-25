@@ -58,7 +58,12 @@ if(email === savedEmail &&
 password === savedPassword){
 
 document.getElementById("msg").innerHTML =
-"✅ Login Successful";
+setTimeout(() => {
+
+window.location.href =
+"index.html";
+
+},1000);
 
 }else{
 
