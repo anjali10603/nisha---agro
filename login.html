@@ -14,17 +14,62 @@
 
 <h1>👨‍🌾 Farmer Login</h1>
 
-<input type="text" placeholder="Enter Username"
+<form onsubmit="loginUser(event)">
+
+<input type="email" id="email"
+placeholder="Enter Email"
+required
 style="padding:15px;width:80%;margin:15px;border-radius:10px;">
 
-<input type="password" placeholder="Enter Password"
+<input type="password" id="password"
+placeholder="Enter Password"
+required
 style="padding:15px;width:80%;margin:15px;border-radius:10px;">
 
 <br>
 
 <button class="btn">Login</button>
 
+</form>
+
+<h2 id="msg"></h2>
+
 </div>
+
+<script>
+
+function loginUser(event){
+
+event.preventDefault();
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const savedEmail =
+localStorage.getItem("email");
+
+const savedPassword =
+localStorage.getItem("password");
+
+if(email === savedEmail &&
+password === savedPassword){
+
+document.getElementById("msg").innerHTML =
+"✅ Login Successful";
+
+}else{
+
+document.getElementById("msg").innerHTML =
+"❌ Invalid Email or Password";
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
