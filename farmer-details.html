@@ -21,43 +21,21 @@ background-size:cover;
 <form onsubmit="saveDetails(event)">
 
 <input type="text"
-id="name"
 placeholder="Farmer Name"
 required
 style="padding:15px;width:80%;margin:10px;border-radius:10px;">
 
 <input type="text"
-id="mobile"
 placeholder="Mobile Number"
 required
 style="padding:15px;width:80%;margin:10px;border-radius:10px;">
 
 <input type="text"
-id="aadhaar"
-placeholder="Aadhaar Number"
-required
-style="padding:15px;width:80%;margin:10px;border-radius:10px;">
-
-<input type="text"
-id="state"
-placeholder="State"
-required
-style="padding:15px;width:80%;margin:10px;border-radius:10px;">
-
-<input type="text"
-id="district"
-placeholder="District"
-required
-style="padding:15px;width:80%;margin:10px;border-radius:10px;">
-
-<input type="text"
-id="village"
 placeholder="Village"
 required
 style="padding:15px;width:80%;margin:10px;border-radius:10px;">
 
 <input type="text"
-id="crop"
 placeholder="Crop Name"
 required
 style="padding:15px;width:80%;margin:10px;border-radius:10px;">
@@ -78,12 +56,8 @@ function saveDetails(event){
 
 event.preventDefault();
 
-localStorage.setItem(
-"farmerName",
-document.getElementById("name").value
-);
-
-window.location.href = "index.html";
+window.location.href =
+"index.html";
 
 }
 
