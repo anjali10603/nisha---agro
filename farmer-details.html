@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Farmer Details</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="
+background:url('images/about.jpg');
+background-size:cover;
+">
+
+<div class="about-container">
+
+<h1>🌾 Farmer Registration</h1>
+
+<form onsubmit="saveDetails(event)">
+
+<input type="text"
+id="name"
+placeholder="Farmer Name"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="mobile"
+placeholder="Mobile Number"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="aadhaar"
+placeholder="Aadhaar Number"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="state"
+placeholder="State"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="district"
+placeholder="District"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="village"
+placeholder="Village"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<input type="text"
+id="crop"
+placeholder="Crop Name"
+required
+style="padding:15px;width:80%;margin:10px;border-radius:10px;">
+
+<br>
+
+<button class="btn">
+Submit
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+function saveDetails(event){
+
+event.preventDefault();
+
+localStorage.setItem(
+"farmerName",
+document.getElementById("name").value
+);
+
+window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
