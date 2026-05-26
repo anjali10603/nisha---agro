@@ -107,6 +107,13 @@ width:100%;
 </head>
 
 <body style="background:url('images/home.jpg'); background-size:cover; background-position:center; background-attachment:fixed;">
+<div id="google_translate_element"
+style="
+text-align:right;
+padding:10px;
+margin-right:20px;
+">
+</div>
 
 <!-- NAVBAR -->
 
@@ -243,22 +250,34 @@ View crop yield and farming profit analysis.
 </p>
 
 </footer>
-<script>
+<div id="google_translate_element"></div>
 
-function changeLanguage(){
+<script type="text/javascript">
 
-let lang=document.getElementById("language").value;
+function googleTranslateElementInit() {
 
-if(lang==="hi"){
-alert("Hindi Language Selected");
+new google.translate.TranslateElement(
+
+{
+
+pageLanguage: 'en',
+
+includedLanguages: 'en,hi',
+
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
 }
 
-else{
-alert("English Language Selected");
-}
+</script>
 
-}
-
+<script type="text/javascript"
+src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 </body>
 </html>
