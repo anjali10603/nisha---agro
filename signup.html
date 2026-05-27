@@ -1,88 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Signup</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farmer Registration</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#f4fff4;
+}
+
+.signup-container{
+max-width:700px;
+margin:50px auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.signup-container h1{
+text-align:center;
+color:#2e7d32;
+margin-bottom:40px;
+font-size:40px;
+}
+
+.input-box{
+margin-bottom:25px;
+}
+
+.input-box label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:18px;
+background:#2e7d32;
+color:white;
+font-size:20px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+</style>
 
 </head>
 
-<body style="background:url('images/features.jpg');background-size:cover;">
-<div id="google_translate_element"></div>
-<div class="about-container">
+<body>
 
-<h1>🔐 Farmer Signup</h1>
+<div class="signup-container">
 
-<form onsubmit="signupUser(event)">
+<h1>🌾 Farmer Registration</h1>
 
-<input type="email" id="email"
-placeholder="Email"
-required
-style="padding:15px;width:80%;margin:15px;border-radius:10px;">
+<form onsubmit="registerFarmer(event)">
 
-<input type="password" id="password"
-placeholder="Password"
-required
-style="padding:15px;width:80%;margin:15px;border-radius:10px;">
+<div class="input-box">
 
-<br>
+<label>👤 Full Name</label>
 
-<button type="submit" class="btn">
-Signup
+<input type="text" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>📱 Mobile Number</label>
+
+<input type="tel" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🪪 Aadhaar / ID Number</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🏡 Address</label>
+
+<textarea required></textarea>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>👨‍👩‍👧 Family ID</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🏘 Village</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🌍 State</label>
+
+<select required>
+
+<option>Select State</option>
+
+<option>Haryana</option>
+
+<option>Punjab</option>
+
+<option>Rajasthan</option>
+
+<option>Uttar Pradesh</option>
+
+<option>Madhya Pradesh</option>
+
+</select>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🖼 Upload Farmer Photo</label>
+
+<input type="file" accept="image/*" required>
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>🔒 Create Password</label>
+
+<input type="password" required>
+
+</div>
+
+
+
+<button type="submit">
+
+Register Farmer
+
 </button>
 
 </form>
-
-<h2 id="msg"></h2>
 
 </div>
 
 <script>
 
-function signupUser(event){
+function registerFarmer(event){
 
 event.preventDefault();
 
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-localStorage.setItem("email", email);
-localStorage.setItem("password", password);
-
-window.location.href =
-"farmer-details.html";
-
-</script>
-<script type="text/javascript">
-
-function googleTranslateElementInit() {
-
-new google.translate.TranslateElement(
-
-{
-
-pageLanguage: 'en',
-
-includedLanguages: 'en,hi',
-
-layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-
-},
-
-'google_translate_element'
-
-);
+alert("✅ Farmer Registered Successfully");
 
 }
 
 </script>
 
-<script type="text/javascript"
-src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
 </body>
+
 </html>
