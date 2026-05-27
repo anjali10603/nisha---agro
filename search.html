@@ -143,7 +143,42 @@ if (!crop) {
 alert("Please enter crop name");
 return;
 }
+let cropImage = "";
 
+if(crop.toLowerCase() === "wheat"){
+
+cropImage =
+"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b";
+
+}
+
+else if(crop.toLowerCase() === "rice"){
+
+cropImage =
+"https://images.unsplash.com/photo-1536053294864-5b7f4bdfd1b7";
+
+}
+
+else if(crop.toLowerCase() === "cotton"){
+
+cropImage =
+"https://images.unsplash.com/photo-1599940824399-b87987ceb72a";
+
+}
+
+else if(crop.toLowerCase() === "maize"){
+
+cropImage =
+"https://images.unsplash.com/photo-1601593768799-76f1d7b4c1d6";
+
+}
+
+else if(crop.toLowerCase() === "sugarcane"){
+
+cropImage =
+"https://images.unsplash.com/photo-1625246333195-78d9c38ad449";
+
+}
 document.getElementById("result").innerHTML =
 "<h2 style='color:white;'>Loading...</h2>";
 
@@ -164,7 +199,16 @@ border-radius:10px;
 margin-top:20px;
 color:black;
 ">
-
+<img 
+src="https://source.unsplash.com/600x400/?${crop},farm"
+style="
+width:100%;
+max-width:500px;
+border-radius:20px;
+margin-bottom:20px;
+display:block;
+margin:auto;
+">
 <h2>🌾 ${crop.toUpperCase()}</h2>
 
 <p style="white-space:pre-wrap;">
