@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Nitrogen Testing Analysis</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+margin:0;
+background:#f4fff4;
+}
+
+.container{
+padding:50px 8%;
+}
+
+.hero img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+line-height:1.9;
+}
+
+h1{
+color:#33691e;
+font-size:45px;
+}
+
+h2{
+color:#1b5e20;
+margin-top:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+}
+
+th{
+background:#dcedc8;
+}
+
+select{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+background:#33691e;
+color:white;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#f1f8e9;
+border-radius:15px;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌱 Nitrogen Testing Analysis</h1>
+
+<div class="hero">
+
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
+
+</div>
+
+<div class="card">
+
+<h2>📌 Nitrogen Testing Overview</h2>
+
+<p>
+Nitrogen is essential for healthy leaf growth and crop productivity.
+Nitrogen testing helps farmers apply the correct fertilizer amount.
+</p>
+
+<h2>🌾 Select Nitrogen Level</h2>
+
+<select id="nitrogen">
+
+<option>Low</option>
+
+<option>Medium</option>
+
+<option>High</option>
+
+</select>
+
+<button onclick="checkNitrogen()">
+Analyze Nitrogen
+</button>
+
+<div class="result" id="result">
+
+<h2>📊 Nitrogen Result</h2>
+
+<p id="output"></p>
+
+</div>
+
+<h2>📈 Nitrogen Importance</h2>
+
+<table>
+
+<tr>
+
+<th>Nitrogen Level</th>
+
+<th>Effect on Crops</th>
+
+</tr>
+
+<tr>
+
+<td>Low</td>
+
+<td>Poor Leaf Growth</td>
+
+</tr>
+
+<tr>
+
+<td>Medium</td>
+
+<td>Balanced Growth</td>
+
+</tr>
+
+<tr>
+
+<td>High</td>
+
+<td>Excellent Crop Growth</td>
+
+</tr>
+
+</table>
+
+<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['Low','Medium','High'],datasets:[{label:'Nitrogen Efficiency',data:[35,65,95]}]}}"
+style="
+width:100%;
+border-radius:15px;
+margin-top:20px;
+">
+
+<h2>✅ Benefits of Nitrogen Testing</h2>
+
+<ul>
+
+<li>Improves Leaf Growth</li>
+
+<li>Increases Crop Yield</li>
+
+<li>Reduces Fertilizer Waste</li>
+
+<li>Improves Soil Fertility</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function checkNitrogen(){
+
+let nitrogen=document.getElementById("nitrogen").value;
+
+let result=document.getElementById("result");
+
+let output=document.getElementById("output");
+
+result.style.display="block";
+
+if(nitrogen=="Low"){
+
+output.innerHTML=
+"⚠ Nitrogen level is LOW. Add urea or nitrogen fertilizers.";
+
+}
+
+else if(nitrogen=="Medium"){
+
+output.innerHTML=
+"✅ Nitrogen level is BALANCED for farming.";
+
+}
+
+else{
+
+output.innerHTML=
+"✅ Nitrogen level is HIGH and excellent for crop growth.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
