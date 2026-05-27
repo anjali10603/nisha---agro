@@ -262,3 +262,18 @@ top: 0px !important;
 iframe.skiptranslate {
 display: none !important;
 }
+img{
+max-width:100%;
+display:block;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+body{
+background:white !important;
+color:black !important;
+overflow-x:hidden;
+}
