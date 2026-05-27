@@ -1,106 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Farmer Login</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#f4fff4;
+}
+
+.login-container{
+max-width:500px;
+margin:80px auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.login-container h1{
+text-align:center;
+color:#2e7d32;
+margin-bottom:35px;
+}
+
+.input-box{
+margin-bottom:25px;
+}
+
+.input-box label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+.input-box input{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:16px;
+background:#2e7d32;
+color:white;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+</style>
 
 </head>
 
-<body style="background:url('images/about.jpg');background-size:cover;">
-<div id="google_translate_element"></div>
-<div class="about-container">
+<body>
 
-<h1>👨‍🌾 Farmer Login</h1>
+<div class="login-container">
 
-<form onsubmit="loginUser(event)">
+<h1>🌾 Farmer Login</h1>
 
-<input type="email" id="email"
-placeholder="Enter Email"
-required
-style="padding:15px;width:80%;margin:15px;border-radius:10px;">
+<div class="input-box">
 
-<input type="password" id="password"
-placeholder="Enter Password"
-required
-style="padding:15px;width:80%;margin:15px;border-radius:10px;">
+<label>📱 Mobile Number</label>
 
-<br>
+<input type="text" id="mobile">
 
-<button class="btn">Login</button>
+</div>
 
-</form>
 
-<h2 id="msg"></h2>
+
+<div class="input-box">
+
+<label>🔒 Password</label>
+
+<input type="password" id="password">
+
+</div>
+
+
+
+<button onclick="loginFarmer()">
+Login
+</button>
 
 </div>
 
 <script>
 
-function loginUser(event){
+function loginFarmer(){
 
-event.preventDefault();
+let savedMobile = localStorage.getItem("farmerMobile");
 
-const email =
-document.getElementById("email").value;
+let savedPassword = localStorage.getItem("farmerPassword");
 
-const password =
-document.getElementById("password").value;
+let mobile = document.getElementById("mobile").value;
 
-const savedEmail =
-localStorage.getItem("email");
+let password = document.getElementById("password").value;
 
-const savedPassword =
-localStorage.getItem("password");
+if(mobile === savedMobile && password === savedPassword){
 
-if(email === savedEmail &&
-password === savedPassword){
+alert("✅ Login Successful");
 
-document.getElementById("msg").innerHTML =
-setTimeout(() => {
+window.location.href = "index.html";
 
-window.location.href =
-"index.html";
+}
 
-},1000);
+else{
 
-}else{
-
-document.getElementById("msg").innerHTML =
-"❌ Invalid Email or Password";
+alert("❌ Invalid Mobile Number or Password");
 
 }
 
 }
 
 </script>
-<script type="text/javascript">
 
-function googleTranslateElementInit() {
-
-new google.translate.TranslateElement(
-
-{
-
-pageLanguage: 'en',
-
-includedLanguages: 'en,hi',
-
-layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-
-},
-
-'google_translate_element'
-
-);
-
-}
-
-</script>
-
-<script type="text/javascript"
-src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
 </body>
+
 </html>
