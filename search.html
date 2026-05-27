@@ -192,18 +192,13 @@ const data = await response.json();
 
 document.getElementById("result").innerHTML = `
 
-<div style="
-background:white;
-padding:20px;
-border-radius:10px;
-margin-top:20px;
-color:black;
-">
 <img 
-src="https://source.unsplash.com/600x400/?${crop},farm"
+src="https://loremflickr.com/600/400/${crop}"
 style="
 width:100%;
 max-width:500px;
+height:300px;
+object-fit:cover;
 border-radius:20px;
 margin-bottom:20px;
 display:block;
