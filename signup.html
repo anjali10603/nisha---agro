@@ -201,12 +201,23 @@ Register Farmer
 </div>
 
 <script>
-
 function registerFarmer(event){
 
 event.preventDefault();
 
+let mobile =
+document.querySelector('input[type="tel"]').value;
+
+let password =
+document.querySelector('input[type="password"]').value;
+
+localStorage.setItem("farmerMobile", mobile);
+
+localStorage.setItem("farmerPassword", password);
+
 alert("✅ Farmer Registered Successfully");
+
+window.location.href = "login.html";
 
 }
 
