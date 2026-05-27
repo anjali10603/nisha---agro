@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>pH Testing Analysis</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+margin:0;
+background:#f4fff4;
+}
+
+.container{
+padding:50px 8%;
+}
+
+.hero img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+line-height:1.9;
+}
+
+h1{
+color:#2e7d32;
+font-size:45px;
+}
+
+h2{
+color:#1b5e20;
+margin-top:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+}
+
+th{
+background:#c8e6c9;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+background:#2e7d32;
+color:white;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#e8f5e9;
+border-radius:15px;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🧪 pH Testing Analysis</h1>
+
+<div class="hero">
+
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
+
+</div>
+
+<div class="card">
+
+<h2>📌 pH Testing Overview</h2>
+
+<p>
+Soil pH testing helps determine whether the soil is acidic,
+neutral or alkaline for better crop selection.
+</p>
+
+<h2>🌱 Enter Soil pH Value</h2>
+
+<input type="number" id="ph" placeholder="Enter pH value">
+
+<button onclick="checkPH()">
+Analyze pH
+</button>
+
+<div class="result" id="result">
+
+<h2>📊 pH Result</h2>
+
+<p id="output"></p>
+
+</div>
+
+<h2>📈 pH Scale Analysis</h2>
+
+<table>
+
+<tr>
+
+<th>pH Range</th>
+
+<th>Soil Type</th>
+
+</tr>
+
+<tr>
+
+<td>Below 6</td>
+
+<td>Acidic Soil</td>
+
+</tr>
+
+<tr>
+
+<td>6 - 7.5</td>
+
+<td>Neutral Soil</td>
+
+</tr>
+
+<tr>
+
+<td>Above 7.5</td>
+
+<td>Alkaline Soil</td>
+
+</tr>
+
+</table>
+
+<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['Acidic','Neutral','Alkaline'],datasets:[{label:'pH Range',data:[5,7,9]}]}}"
+style="
+width:100%;
+border-radius:15px;
+margin-top:20px;
+">
+
+<h2>✅ Benefits of pH Testing</h2>
+
+<ul>
+
+<li>Better Crop Selection</li>
+
+<li>Improved Soil Fertility</li>
+
+<li>Balanced Nutrient Absorption</li>
+
+<li>Higher Productivity</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function checkPH(){
+
+let ph=document.getElementById("ph").value;
+
+let result=document.getElementById("result");
+
+let output=document.getElementById("output");
+
+result.style.display="block";
+
+if(ph>=6 && ph<=7.5){
+
+output.innerHTML=
+"✅ Soil is Neutral and highly suitable for farming.";
+
+}
+
+else if(ph<6){
+
+output.innerHTML=
+"⚠ Soil is Acidic. Add lime treatment.";
+
+}
+
+else{
+
+output.innerHTML=
+"⚠ Soil is Alkaline. Add organic compost.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
