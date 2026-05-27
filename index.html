@@ -13,19 +13,6 @@
 <meta name="google" content="notranslate">
 
 <style>
-<div class="language-buttons">
-
-<button onclick="translateHindi()">
-Hindi
-</button>
-
-<button onclick="translateEnglish()">
-English
-</button>
-
-</div>
-
-<div id="google_translate_element" style="display:none;"></div>
 
 .goog-te-gadget select{
 padding:8px;
@@ -139,7 +126,19 @@ width:100%;
 </head>
 
 <body style="background:url('images/home.jpg'); background-size:cover; background-position:center; background-attachment:fixed;">
+<div class="language-buttons">
 
+<button onclick="translateHindi()">
+Hindi
+</button>
+
+<button onclick="translateEnglish()">
+English
+</button>
+
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
 
 <!-- NAVBAR -->
 
@@ -156,14 +155,6 @@ width:100%;
 <li><a href="weather.html">Weather</a></li>
 <li><a href="login.html">Login</a></li>
 <li><a href="signup.html">Signup</a></li>
-<div id="google_translate_element"
-style="
-position:absolute;
-top:20px;
-right:20px;
-z-index:9999;
-">
-</div>
 
 
 <li>
@@ -311,22 +302,15 @@ select.value = "hi";
 select.dispatchEvent(new Event("change"));
 
 }
-
+  
 function translateEnglish(){
 
-var select = document.querySelector(".goog-te-combo");
-
-select.value = "";
-
-select.dispatchEvent(new Event("change"));
+location.reload();
 
 }
 
 </script>
 
-<script type="text/javascript"
-src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
 
 <script type="text/javascript"
 src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
