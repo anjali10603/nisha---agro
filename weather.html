@@ -9,7 +9,7 @@
 </head>
 
 <body style="background:url('images/weather.jpg');background-size:cover;">
-
+<div id="google_translate_element"></div>
 <nav>
 
 <div class="logo">🌾 Nisha AgroGuide</div>
@@ -42,6 +42,32 @@ Wind Speed: 12 km/h
 </p>
 
 </div>
+<script type="text/javascript">
 
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement(
+
+{
+
+pageLanguage: 'en',
+
+includedLanguages: 'en,hi',
+
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+},
+
+'google_translate_element'
+
+);
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 </body>
 </html>
