@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Potassium Testing Analysis</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+margin:0;
+background:#f5fffd;
+}
+
+.container{
+padding:50px 8%;
+}
+
+.hero img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+line-height:1.9;
+}
+
+h1{
+color:#00695c;
+font-size:45px;
+}
+
+h2{
+color:#004d40;
+margin-top:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+}
+
+th{
+background:#b2dfdb;
+}
+
+select{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+background:#00695c;
+color:white;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#e0f2f1;
+border-radius:15px;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌿 Potassium Testing Analysis</h1>
+
+<div class="hero">
+
+<img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5">
+
+</div>
+
+<div class="card">
+
+<h2>📌 Potassium Testing Overview</h2>
+
+<p>
+Potassium helps crops fight diseases,
+improves fruit quality and increases overall crop strength.
+</p>
+
+<h2>🌱 Select Potassium Level</h2>
+
+<select id="potassium">
+
+<option>Low</option>
+
+<option>Medium</option>
+
+<option>High</option>
+
+</select>
+
+<button onclick="checkPotassium()">
+Analyze Potassium
+</button>
+
+<div class="result" id="result">
+
+<h2>📊 Potassium Result</h2>
+
+<p id="output"></p>
+
+</div>
+
+<h2>📈 Potassium Importance</h2>
+
+<table>
+
+<tr>
+
+<th>Potassium Level</th>
+
+<th>Effect on Crops</th>
+
+</tr>
+
+<tr>
+
+<td>Low</td>
+
+<td>Weak Disease Resistance</td>
+
+</tr>
+
+<tr>
+
+<td>Medium</td>
+
+<td>Balanced Crop Health</td>
+
+</tr>
+
+<tr>
+
+<td>High</td>
+
+<td>Strong & Healthy Crops</td>
+
+</tr>
+
+</table>
+
+<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['Low','Medium','High'],datasets:[{label:'Potassium Efficiency',data:[35,68,96]}]}}"
+style="
+width:100%;
+border-radius:15px;
+margin-top:20px;
+">
+
+<h2>✅ Benefits of Potassium Testing</h2>
+
+<ul>
+
+<li>Improves Disease Resistance</li>
+
+<li>Stronger Crop Growth</li>
+
+<li>Better Fruit Quality</li>
+
+<li>Higher Productivity</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function checkPotassium(){
+
+let potassium=document.getElementById("potassium").value;
+
+let result=document.getElementById("result");
+
+let output=document.getElementById("output");
+
+result.style.display="block";
+
+if(potassium=="Low"){
+
+output.innerHTML=
+"⚠ Potassium level is LOW. Add potash fertilizers.";
+
+}
+
+else if(potassium=="Medium"){
+
+output.innerHTML=
+"✅ Potassium level is BALANCED for healthy farming.";
+
+}
+
+else{
+
+output.innerHTML=
+"✅ Potassium level is HIGH and excellent for crop strength.";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
