@@ -277,3 +277,10 @@ background:white !important;
 color:black !important;
 overflow-x:hidden;
 }
+.card p,
+.card li,
+.card td,
+.card th,
+.card span{
+color:black !important;
+}
