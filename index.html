@@ -13,17 +13,19 @@
 <meta name="google" content="notranslate">
 
 <style>
+<div class="language-buttons">
 
-#google_translate_element{
-position:fixed;
-top:15px;
-right:20px;
-z-index:99999;
-background:white;
-padding:10px 15px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
+<button onclick="translateHindi()">
+Hindi
+</button>
+
+<button onclick="translateEnglish()">
+English
+</button>
+
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
 
 .goog-te-gadget select{
 padding:8px;
@@ -300,6 +302,30 @@ layout: google.translate.TranslateElement.InlineLayout.SIMPLE
 
 }
 
+function translateHindi(){
+
+var select = document.querySelector(".goog-te-combo");
+
+select.value = "hi";
+
+select.dispatchEvent(new Event("change"));
+
+}
+
+function translateEnglish(){
+
+var select = document.querySelector(".goog-te-combo");
+
+select.value = "";
+
+select.dispatchEvent(new Event("change"));
+
+}
+
+</script>
+
+<script type="text/javascript"
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
 
 <script type="text/javascript"
