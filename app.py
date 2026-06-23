@@ -6,7 +6,7 @@ import os
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 
 @app.route("/")
 def home():
